@@ -1,6 +1,6 @@
 **A basic ABAP report which will display information from the SFLIGHT table.**
 
-Selection screen has radio buttons labeld report A, Report B.\
+Selection screen has radio buttons labeled report A, Report B.\
 When switching between the two radio buttons the parameters change.
 
 **Report A:**
