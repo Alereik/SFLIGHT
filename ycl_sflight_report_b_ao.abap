@@ -4,6 +4,17 @@ CLASS ycl_sflight_report_b_ao DEFINITION
   CREATE PUBLIC.
 
 PUBLIC SECTION.
+
+  INTERFACES: yif_sflight_report_b_ao.
+
+  ALIASES: st_data    FOR yif_sflight_report_b_ao~st_data,
+           st_display FOR yif_sflight_report_b_ao~st_display,
+           st_insert  FOR yif_sflight_report_b_ao~st_insert,
+           tt_data    FOR yif_sflight_report_b_ao~tt_data,
+           tt_display FOR yif_sflight_report_b_ao~tt_display,
+
+           run_report FOR yif_sflight_report_b_ao~run_report.
+
   METHODS: constructor
              IMPORTING
                iv_fldate   TYPE s_date
@@ -15,47 +26,6 @@ PUBLIC SECTION.
 PROTECTED SECTION.
 
 PRIVATE SECTION.
-  TYPES: BEGIN OF st_data,
-           fldate   TYPE s_date,
-           carrid   TYPE s_carr_id,
-           connid   TYPE s_conn_id,
-           bookid   TYPE s_book_id,
-           custtype TYPE s_custtype,
-           passname TYPE s_passname,
-           street   TYPE s_street,
-           city     TYPE city,
-           region   TYPE s_region,
-           postcode TYPE postcode,
-           country  TYPE s_country,
-           email    TYPE email,
-         END OF st_data,
-
-         BEGIN OF st_display,
-           fldate      TYPE s_date,
-           carrid      TYPE s_carr_id,
-           custttype   TYPE s_custtype,
-           passname    TYPE s_passname,
-           passaddress TYPE string,
-           email       TYPE s_email,
-           booked      TYPE abap_bool,
-           connid      TYPE s_conn_id,
-           bookid      TYPE s_book_id,
-         END OF st_display,
-
-         BEGIN OF st_insert,
-           carrid      TYPE s_carr_id,
-           connid      TYPE s_conn_id,
-           fldate      TYPE s_date,
-           bookid      TYPE s_book_id,
-           custttype   TYPE s_custtype,
-           passname    TYPE s_passname,
-           passaddress TYPE string,
-           email       TYPE s_email,
-         END OF st_insert,
-
-         tt_data    TYPE STANDARD TABLE OF st_data,
-         tt_display TYPE STANDARD TABLE OF st_display.
-
   DATA: gv_fldate   TYPE s_date,
         gv_bookid   TYPE s_book_id,
         gv_custname TYPE s_custname,
