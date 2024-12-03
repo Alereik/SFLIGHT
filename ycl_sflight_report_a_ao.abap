@@ -4,6 +4,13 @@ CLASS ycl_sflight_report_a_ao DEFINITION
   CREATE PUBLIC.
 
 PUBLIC SECTION.
+
+  INTERFACES: yif_sflight_report_a_ao.
+
+  ALIASES: st_record  FOR yif_sflight_report_a_ao~st_record,
+           tt_records FOR yif_sflight_report_a_ao~tt_records,
+           run_report FOR yif_sflight_report_a_ao~run_report.
+
   METHODS: constructor
              IMPORTING
                iv_carrid TYPE s_carr_id
@@ -15,18 +22,6 @@ PUBLIC SECTION.
 PROTECTED SECTION.
 
 PRIVATE SECTION.
-  TYPES: BEGIN OF st_record,
-           carrid    TYPE s_carr_id,
-           connid    TYPE s_conn_id,
-           fldate    TYPE s_date,
-           planetype TYPE s_planetye,
-           price     TYPE s_price,
-           seatsocc  TYPE s_seatsocc,
-           seatsmax  TYPE s_seatsmax,
-         END OF st_record,
-
-         tt_records TYPE STANDARD TABLE OF st_record.
-
   DATA: gv_carrid TYPE s_carr_id,
         gv_connid TYPE s_conn_id,
         gv_fldate TYPE s_date,
