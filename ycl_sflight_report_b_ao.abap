@@ -12,7 +12,6 @@ PUBLIC SECTION.
            st_insert  FOR yif_sflight_report_b_ao~st_insert,
            tt_data    FOR yif_sflight_report_b_ao~tt_data,
            tt_display FOR yif_sflight_report_b_ao~tt_display,
-
            run_report FOR yif_sflight_report_b_ao~run_report.
 
   METHODS: constructor
